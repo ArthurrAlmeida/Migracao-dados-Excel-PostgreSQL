@@ -1,0 +1,32 @@
+from pyspark.sql.types import *
+
+from pyspark.sql import SparkSession
+
+Production = spark.read.load("/home/arthur/Downloads/dados/Production.Product.csv", header=True, format="csv", sep=";", inferSchema = True)
+
+Production.write.format("jdbc").option("url","jdbc:postgresql://localhost:5432/postgres").option("dbtable","Production").option("user","postgres").option("password","123").option("driver","org.postgresql.Driver").save()
+
+
+Person = spark.read.load("/home/arthur/Downloads/dados/Person.Person.csv", header=True, format="csv", sep=";", inferSchema = True)
+
+Person.write.format("jdbc").option("url","jdbc:postgresql://localhost:5432/postgres").option("dbtable","Person").option("user","postgres").option("password","123").option("driver","org.postgresql.Driver").save()
+
+
+Customer = spark.read.load("/home/arthur/Downloads/dados/Sales.Customer.csv", header=True, format="csv", sep=";", inferSchema = True)
+
+Customer.write.format("jdbc").option("url","jdbc:postgresql://localhost:5432/postgres").option("dbtable","Customer").option("user","postgres").option("password","123").option("driver","org.postgresql.Driver").save()
+
+
+SalesOrderDetail = spark.read.load("/home/arthur/Downloads/dados/Sales.SalesOrderDetail.csv", header=True, format="csv", sep=";", inferSchema = True)
+
+SalesOrderDetail.write.format("jdbc").option("url","jdbc:postgresql://localhost:5432/postgres").option("dbtable","SalesOrderDetail").option("user","postgres").option("password","123").option("driver","org.postgresql.Driver").save()
+
+
+SalesOrderDetail = spark.read.load("/home/arthur/Downloads/dados/Sales.SalesOrderDetail.csv", header=True, format="csv", sep=";", inferSchema = True)
+
+SalesOrderDetail.write.format("jdbc").option("url","jdbc:postgresql://localhost:5432/postgres").option("dbtable","SalesOrderHeader").option("user","postgres").option("password","123").option("driver","org.postgresql.Driver").save()
+
+
+SpecialOfferProduct = spark.read.load("/home/arthur/Downloads/dados/Sales.SpecialOfferProduct.csv", header=True, format="csv", sep=";", inferSchema = True)
+
+SpecialOfferProduct.write.format("jdbc").option("url","jdbc:postgresql://localhost:5432/postgres").option("dbtable","SpecialOfferProduct").option("user","postgres").option("password","123").option("driver","org.postgresql.Driver").save()
