@@ -1,0 +1,37 @@
+/* QUERY 1 */
+SELECT "SalesOrderID", COUNT(*)
+FROM SalesOrderDetail
+GROUP BY "SalesOrderID"
+HAVING COUNT(*) >= 3;
+
+
+/* QUERY 2 */
+SELECT COUNT(t2."OrderQty"), t3."Name", t3."DaysToManufacture"
+FROM SpecialOfferProduct t1
+INNER JOIN Production t3 on t1."ProductID" = t3."ProductID"
+INNER JOIN SalesOrderDetail t2 on t3."ProductID" = t2."ProductID"
+GROUP BY t2."OrderQty", t3."DaysToManufacture", t3."Name"
+ORDER BY t2."OrderQty" ASC LIMIT 3;
+
+
+/* QUERY 3*/
+SELECT t2."BusinessEntityID", t2."FirstName", COUNT(t1."SalesOrderID")
+from SalesOrderHeader t1
+inner join Customer t3 on t1."CustomerID" = t3."CustomerID"
+inner join Person t2 on t3."CustomerID" = t2."BusinessEntityID"
+GROUP BY t2."FirstName", t2."BusinessEntityID";
+
+
+/* QUERY 4 */
+SELECT t1."ProductID", t3."OrderDate", SUM(t2."OrderQty")
+from Production t1
+inner join SalesOrderDetail t2 on t1."ProductID" = t2."ProductID"
+inner join SalesOrderHeader t3 on t3."SalesOrderID" = t2."SalesOrderID"
+GROUP BY t1."ProductID", t3."OrderDate";
+
+/* QUERY 5 */
+SELECT "SalesOrderID", "OrderDate", "TotalDue"
+FROM SalesOrderHeader
+WHERE "OrderDate" >= '2011-09-01 00:00:00'
+AND "OrderDate" <= '2011-09-30 23:59:59'
+AND "TotalDue" >= 1000;
