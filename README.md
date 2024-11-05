@@ -1,5 +1,4 @@
-# Processo seletivo Rox
-Repositorio criado com o intuito de realizar o teste de Eng de Dados Jr na empresa Rox.
+# Migração de dados Excel para PostgreSQL
 
 <h3> Ferramentas e versôes utilizadas </h3>
 
@@ -33,9 +32,4 @@ Repositorio criado com o intuito de realizar o teste de Eng de Dados Jr na empre
 
   <h3> Dados </h3>
 
-  <p> Realizado todo o processo, os dados transformados podem ser encontrados no seguinte link https://s3.console.aws.amazon.com/s3/buckets/rox-dados-arthur?region=sa-east-1&bucketType=general&tab=properties nele tem o backup de todas as tabelas transformadas e prontas para uso. Para visualizar só precisa do PgAdmin, onde abre o arquivo e ele mostra o resultado das tabelas. </p> 
-
-  <h3> Considerações Finais </h3>
-
-  <p> Gostaria de agradecer a equipe Rox por todo apoio e empatia, aprendi muito com o processo seletivo, realizei da forma que sei fazer e que domino, tenho muito a aprender e estou nesse processo para melhorar cada dia mais e o processo seletivo me fez crescer bastante nesse quesito. </p>
-  
+  <p> Os dados transformados podem ser encontrados no seguinte link https://s3.console.aws.amazon.com/s3/buckets/rox-dados-arthur?region=sa-east-1&bucketType=general&tab=properties nele tem o backup de todas as tabelas transformadas e prontas para uso. Para visualizar só precisa do PgAdmin, onde abre o arquivo e ele mostra o resultado das tabelas. </p> 
